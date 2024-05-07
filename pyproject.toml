@@ -54,10 +54,9 @@ features = [
 post-install-commands = []
 
 [tool.hatch.envs.default.scripts]
-oma = "python src/wikidata_orthologs_bot/omarallel.py {args}"
-omaslow = "python src/wikidata_orthologs_bot/oma.py {args}"
+oma = "python src/wikidata_orthologs_bot/oma.py {args}"
 fmt = [
-    "ruff src --fix",
+    "ruff check --fix",
     "ruff format",
 ]
 compile = "pip-compile -o requirements.txt pyproject.toml"

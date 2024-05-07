@@ -8,18 +8,20 @@ Extension of [SuLab OrthologBot.py](https://github.com/SuLab/scheduled-bots/blob
 
 1. Download orthologs data:
 
-```bash
-mkdir -p data
-cd data
-wget https://www.bgee.org/ftp/current/homologous_genes/OMA_orthologs.zip
-unzip OMA_orthologs.zip
-```
+    ```bash
+    mkdir -p data
+    cd data
+    wget https://www.bgee.org/ftp/current/homologous_genes/OMA_orthologs.zip
+    unzip OMA_orthologs.zip
+    ```
 
 2. Run mapping script in parallel, will generate a CSV file with all orthologs:
 
-```bash
-hatch run oma
-```
+    ```bash
+    hatch run oma
+    ```
+
+    > You can manually choose the number of workers with `hatch run oma 32`
 
 ## See also
 
