@@ -1,0 +1,3 @@
+.venv
+data/
+valid_ortholog_pairs.csv

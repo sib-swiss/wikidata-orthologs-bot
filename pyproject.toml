@@ -1,0 +1,111 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+requires-python = ">=3.8"
+version = "0.0.1"
+name = "wikidata-ortholog-bot"
+description = "Bot and scripts to enrich Wikidata orthologs information using SIB orthologs databases."
+license = "MIT"
+authors = [
+    { name = "Vincent Emonet", email = "vincent.emonet@gmail.com" },
+]
+keywords = [
+    "Wikidata",
+    "Orthologs",
+    "Data mapping",
+]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+    "requests",
+    "wikidataintegrator",
+    "pandas",
+    "pandarallel",
+    "tqdm",
+]
+
+
+[project.optional-dependencies]
+test = [
+    "ruff",
+    "pip-tools",
+]
+
+
+[project.urls]
+Homepage = "https://github.com/sib-kru/wikidata-orthologs-bot"
+Documentation = "https://github.com/sib-kru/wikidata-orthologs-bot"
+History = "https://github.com/sib-kru/wikidata-orthologs-bot/releases"
+Tracker = "https://github.com/sib-kru/wikidata-orthologs-bot/issues"
+Source = "https://github.com/sib-kru/wikidata-orthologs-bot"
+
+
+# ENVIRONMENTS AND SCRIPTS
+[tool.hatch.envs.default]
+features = [
+    "test",
+]
+post-install-commands = []
+
+[tool.hatch.envs.default.scripts]
+oma = "python src/wikidata_orthologs_bot/omarallel.py {args}"
+omaslow = "python src/wikidata_orthologs_bot/oma.py {args}"
+fmt = [
+    "ruff src --fix",
+    "ruff format",
+]
+compile = "pip-compile -o requirements.txt pyproject.toml"
+
+
+## TOOLS
+[tool.hatch.build.targets.wheel]
+packages = ["src/wikidata_orthologs_bot"]
+
+# If you need to import packages from git URLs:
+# [tool.hatch.metadata]
+# allow-direct-references = true
+
+
+# https://github.com/astral-sh/ruff#configuration
+[tool.ruff]
+src = ["src"]
+target-version = "py39"
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "I",     # isort
+    "N",     # pep8-naming
+    "S",     # bandit
+    "A",     # flake8-builtins
+    "YTT",   # flake8-2020
+    "B",     # flake8-bugbear
+    "C",     # flake8-comprehensions
+    "ICN",   # flake8-import-conventions
+    "SIM",   # flake8-simplify
+    "TID",   # flake8-tidy-imports
+    "Q",     # flake8-quotes
+    # "FBT",   # flake8-boolean-trap
+    "F",     # pyflakes
+    "UP",    # pyupgrade
+    "E",     # pycodestyle errors
+    "W",     # pycodestyle warnings
+    "PLC",   # pylint convention
+    "PLE",   # pylint error
+    # "PLR",   # pylint refactor Magic value used in comparison, consider replacing 400 with a constant variable
+    "PLW",   # pylint warning
+    "RUF",   # ruff specific
+    "T",
+]
+ignore = [
+    "E501", # line too long
+    "C901", # too complex
+    "T201", # do not use print
+    "B008", # do not perform function calls in argument defaults
+]
