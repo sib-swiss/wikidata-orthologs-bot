@@ -4,7 +4,7 @@
 
 ## Add orthologs from OMA
 
-Extension of [SuLab OrthologBot.py](https://github.com/SuLab/scheduled-bots/blob/main/scheduled_bots/geneprotein/OrthologBot.py) to include OMA orthologs.
+Extension of [SuLab OrthologBot.py](https://github.com/SuLab/scheduled-bots/blob/main/scheduled_bots/geneprotein/OrthologBot.py) to include [OMA orthologs](https://omabrowser.org/oma/home/).
 
 1. Download orthologs data:
 
@@ -13,6 +13,7 @@ Extension of [SuLab OrthologBot.py](https://github.com/SuLab/scheduled-bots/blob
     cd data
     wget https://www.bgee.org/ftp/current/homologous_genes/OMA_orthologs.zip
     unzip OMA_orthologs.zip
+    cd ..
     ```
 
 2. Run mapping script in parallel, will generate a CSV file with all orthologs:
@@ -22,6 +23,8 @@ Extension of [SuLab OrthologBot.py](https://github.com/SuLab/scheduled-bots/blob
     ```
 
     > You can manually choose the number of workers with `hatch run oma 32`
+    >
+    > It takes about 90 minutes to complete on 32 cores
 
 ## See also
 
