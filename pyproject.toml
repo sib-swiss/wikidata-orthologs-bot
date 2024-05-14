@@ -26,7 +26,7 @@ dependencies = [
     "requests",
     "wikidataintegrator",
     "pandas",
-    "pandarallel",
+    "python-dotenv",
     "tqdm",
 ]
 
@@ -56,8 +56,8 @@ post-install-commands = []
 [tool.hatch.envs.default.scripts]
 oma = "python src/wikidata_orthologs_bot/oma.py {args}"
 fmt = [
-    "ruff check --fix",
     "ruff format",
+    "ruff check --fix",
 ]
 compile = "pip-compile -o requirements.txt pyproject.toml"
 
