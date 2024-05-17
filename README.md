@@ -21,6 +21,10 @@ Run mapping script without writing to Wikidata, will generate a CSV file with al
 hatch run oma
 ```
 
+> [!NOTE]
+>
+> Takes about 34h to run
+
 Run the mapping script with writing to Wikidata enabled:
 
 ```bash

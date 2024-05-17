@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 requires-python = ">=3.8"
 version = "0.0.1"
-name = "wikidata-ortholog-bot"
+name = "wikidata-orthologs-bot"
 description = "Bot and scripts to enrich Wikidata orthologs information using SIB orthologs databases."
 license = "MIT"
 authors = [
@@ -23,11 +23,12 @@ classifiers = [
 ]
 
 dependencies = [
+    "python-dotenv",
+    "tqdm",
     "requests",
     "wikidataintegrator",
     "pandas",
-    "python-dotenv",
-    "tqdm",
+    # "shexer ==2.4.1",
 ]
 
 
@@ -39,11 +40,11 @@ test = [
 
 
 [project.urls]
-Homepage = "https://github.com/sib-kru/wikidata-orthologs-bot"
-Documentation = "https://github.com/sib-kru/wikidata-orthologs-bot"
-History = "https://github.com/sib-kru/wikidata-orthologs-bot/releases"
-Tracker = "https://github.com/sib-kru/wikidata-orthologs-bot/issues"
-Source = "https://github.com/sib-kru/wikidata-orthologs-bot"
+Homepage = "https://github.com/sib-swiss/wikidata-orthologs-bot"
+Documentation = "https://github.com/sib-swiss/wikidata-orthologs-bot"
+History = "https://github.com/sib-swiss/wikidata-orthologs-bot/releases"
+Tracker = "https://github.com/sib-swiss/wikidata-orthologs-bot/issues"
+Source = "https://github.com/sib-swiss/wikidata-orthologs-bot"
 
 
 # ENVIRONMENTS AND SCRIPTS
