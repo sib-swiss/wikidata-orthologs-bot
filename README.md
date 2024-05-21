@@ -33,7 +33,17 @@ hatch run oma --write
 
 > [!WARNING]
 >
-> It currently does not check if the OMA browser reference already exists in Wikidata, so it might create duplicates references if ran multiple times with `--write` enabled
+> It currently does not check if the OMA browser reference already exists in Wikidata, so it might create duplicates references if ran multiple times with `--write` enabled.
+>
+> TODO: add logic that checks if the OMA browser reference has already been added
+
+SPARQL query to check for OMA references in https://query.wikidata.org:
+
+```SPARQL
+SELECT (COUNT(?ortho) as ?count) WHERE {
+  ?ortho pr:P248 wd:Q7104801 .
+}
+```
 
 ## See also
 
